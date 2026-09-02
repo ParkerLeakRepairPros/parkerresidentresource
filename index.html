@@ -1,0 +1,1227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parker Resident Resource | Municipal Real Estate & Infrastructure Prep Portal</title>
+    <meta name="description" content="Parker Resident Resource provides expert civic guides, pre-listing plumbing inspection protocols, and real estate valuation safeguards for homeowners in Parker, Colorado.">
+    
+    <!-- Typography: Syne (Display) & Plus Jakarta Sans (Body) for a contemporary Web 2.0 digital magazine aesthetic -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+
+    <style>
+        /* 
+           UNIQUE DESIGN SYSTEM
+           Theme: Royal Midnight Indigo, Aurora Violet, Electric Cyan & Soft Cream Warmth
+           Layout Engine: Diagonal Section Cutouts, Floating HUD Elements, Asymmetric Offset Cards
+        */
+        :root {
+            --bg-dark: #080b14;
+            --bg-card: #0f1526;
+            --bg-card-alt: #161e36;
+            --bg-glass: rgba(22, 30, 54, 0.65);
+            
+            --accent-cyan: #00f0ff;
+            --accent-violet: #8b5cf6;
+            --accent-amber: #f59e0b;
+            --accent-rose: #f43f5e;
+            
+            --text-main: #f8fafc;
+            --text-sub: #94a3b8;
+            --text-muted: #64748b;
+            
+            --border-glow: rgba(0, 240, 255, 0.25);
+            --border-subtle: rgba(255, 255, 255, 0.08);
+            
+            --font-head: 'Syne', sans-serif;
+            --font-body: 'Plus Jakarta Sans', sans-serif;
+            
+            --radius-xl: 32px;
+            --radius-lg: 20px;
+            --radius-md: 12px;
+            --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            font-family: var(--font-body);
+            line-height: 1.7;
+            overflow-x: hidden;
+            background-image: 
+                radial-gradient(circle at 15% 10%, rgba(139, 92, 246, 0.12) 0%, transparent 40%),
+                radial-gradient(circle at 85% 60%, rgba(0, 240, 255, 0.08) 0%, transparent 45%);
+            background-attachment: fixed;
+        }
+
+        h1, h2, h3, h4, .font-heading {
+            font-family: var(--font-head);
+            letter-spacing: -0.02em;
+            line-height: 1.15;
+        }
+
+        a {
+            color: var(--accent-cyan);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        a:hover {
+            color: var(--accent-violet);
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .container {
+            width: 92%;
+            max-width: 1320px;
+            margin: 0 auto;
+        }
+
+        /* BUTTON STYLES */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            padding: 18px 38px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: var(--transition);
+            border: none;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+        }
+
+        .btn-cyan {
+            background: linear-gradient(135deg, var(--accent-cyan), #00b8d4);
+            color: #040814;
+            box-shadow: 0 8px 30px rgba(0, 240, 255, 0.3);
+        }
+
+        .btn-cyan:hover {
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 14px 40px rgba(0, 240, 255, 0.5);
+            color: #000;
+        }
+
+        .btn-outline {
+            background: rgba(255, 255, 255, 0.03);
+            color: var(--text-main);
+            border: 1px solid var(--border-subtle);
+            backdrop-filter: blur(12px);
+        }
+
+        .btn-outline:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: var(--accent-cyan);
+            color: var(--accent-cyan);
+            transform: translateY(-2px);
+        }
+
+        .badge-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 20px;
+            border-radius: 50px;
+            background: rgba(139, 92, 246, 0.15);
+            border: 1px solid rgba(139, 92, 246, 0.35);
+            color: var(--accent-violet);
+            font-size: 0.82rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.2px;
+            margin-bottom: 24px;
+        }
+
+        .badge-pill::before {
+            content: '';
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--accent-cyan);
+            box-shadow: 0 0 10px var(--accent-cyan);
+        }
+
+        .section-space {
+            padding: 120px 0;
+            position: relative;
+        }
+
+        /* 1. STICKY NAVIGATION */
+        .navbar {
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 92%;
+            max-width: 1280px;
+            z-index: 1000;
+            background: rgba(8, 11, 20, 0.8);
+            backdrop-filter: blur(24px);
+            border: 1px solid var(--border-subtle);
+            border-radius: 100px;
+            padding: 12px 30px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            transition: var(--transition);
+        }
+
+        .navbar.scrolled {
+            top: 10px;
+            background: rgba(8, 11, 20, 0.95);
+            border-color: rgba(0, 240, 255, 0.2);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8);
+        }
+
+        .nav-brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-family: var(--font-head);
+            font-size: 1.2rem;
+            font-weight: 800;
+            color: #fff;
+        }
+
+        .brand-symbol {
+            width: 38px;
+            height: 38px;
+            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-violet));
+            border-radius: 50%;
+            display: grid;
+            place-items: center;
+            color: #000;
+            font-weight: 900;
+            font-size: 1.2rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-sub);
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-cyan);
+        }
+
+        /* 2. DYNAMIC HERO SECTION */
+        .hero {
+            padding-top: 190px;
+            padding-bottom: 100px;
+            position: relative;
+        }
+
+        .hero-layout {
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .hero-headline {
+            font-size: 3.8rem;
+            margin-bottom: 24px;
+            color: #fff;
+        }
+
+        .hero-headline span {
+            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-violet));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-subtext {
+            font-size: 1.2rem;
+            color: var(--text-sub);
+            margin-bottom: 40px;
+            max-width: 580px;
+        }
+
+        .hero-visual-card {
+            position: relative;
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-xl);
+            padding: 16px;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.5);
+        }
+
+        .hero-visual-card img {
+            width: 100%;
+            height: 460px;
+            object-fit: cover;
+            border-radius: calc(var(--radius-xl) - 8px);
+        }
+
+        .floating-badge {
+            position: absolute;
+            bottom: -25px;
+            left: -25px;
+            background: var(--bg-card-alt);
+            border: 1px solid var(--accent-cyan);
+            padding: 20px 28px;
+            border-radius: var(--radius-lg);
+            backdrop-filter: blur(16px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+        }
+
+        /* 3. QUICK STATS GRID */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+            margin-top: 60px;
+        }
+
+        .stat-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-lg);
+            padding: 32px 24px;
+            position: relative;
+            overflow: hidden;
+            transition: var(--transition);
+        }
+
+        .stat-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: var(--accent-cyan);
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(0, 240, 255, 0.4);
+        }
+
+        .stat-number {
+            font-family: var(--font-head);
+            font-size: 2.8rem;
+            font-weight: 800;
+            color: #fff;
+            margin-bottom: 6px;
+        }
+
+        .stat-label {
+            font-size: 0.85rem;
+            color: var(--text-sub);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 600;
+        }
+
+        /* 4. PLATFORM OVERVIEW */
+        .overview-box {
+            background: linear-gradient(135deg, var(--bg-card), var(--bg-card-alt));
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-xl);
+            padding: 70px 60px;
+            position: relative;
+        }
+
+        /* 5. MAIN FEATURED ARTICLE (SEO CORE) */
+        .article-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-xl);
+            padding: 90px 80px;
+            position: relative;
+        }
+
+        .article-header h1 {
+            font-size: 3rem;
+            color: #fff;
+            margin-bottom: 24px;
+        }
+
+        .article-meta {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 40px;
+            padding-bottom: 24px;
+            border-bottom: 1px solid var(--border-subtle);
+        }
+
+        .article-body {
+            font-size: 1.12rem;
+            line-height: 1.9;
+            color: #cbd5e1;
+        }
+
+        .article-body p {
+            margin-bottom: 30px;
+        }
+
+        .article-body h2 {
+            font-size: 2rem;
+            color: #fff;
+            margin: 50px 0 24px 0;
+        }
+
+        .article-body h3 {
+            font-size: 1.5rem;
+            color: var(--accent-cyan);
+            margin: 36px 0 18px 0;
+        }
+
+        .article-body ul {
+            margin: 0 0 32px 32px;
+        }
+
+        .article-body li {
+            margin-bottom: 14px;
+        }
+
+        .article-media {
+            margin: 45px 0;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            border: 1px solid var(--border-subtle);
+        }
+
+        .article-media img {
+            width: 100%;
+            max-height: 500px;
+            object-fit: cover;
+        }
+
+        .media-caption {
+            background: #0a0e1a;
+            padding: 14px 24px;
+            font-size: 0.88rem;
+            color: var(--text-sub);
+            text-align: center;
+        }
+
+        /* KEY BACKLINK & AUTHORITY LINK STYLING */
+        .primary-backlink {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            color: #040814 !important;
+            background: linear-gradient(135deg, var(--accent-cyan), #00d2ff);
+            padding: 4px 20px;
+            border-radius: 50px;
+            font-weight: 800;
+            font-size: 0.98rem;
+            box-shadow: 0 4px 20px rgba(0, 240, 255, 0.4);
+            transition: var(--transition);
+        }
+
+        .primary-backlink:hover {
+            transform: translateY(-2px) scale(1.04);
+            box-shadow: 0 8px 30px rgba(0, 240, 255, 0.7);
+            color: #000 !important;
+        }
+
+        .authority-link {
+            color: var(--accent-amber);
+            text-decoration: underline;
+            text-underline-offset: 5px;
+            font-weight: 600;
+        }
+
+        .authority-link:hover {
+            color: #fff;
+        }
+
+        /* 6. CORE FEATURES GRID */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .feat-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-lg);
+            padding: 40px;
+            transition: var(--transition);
+        }
+
+        .feat-card:hover {
+            border-color: var(--accent-cyan);
+            transform: translateY(-8px);
+            background: var(--bg-card-alt);
+        }
+
+        .feat-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: var(--radius-md);
+            background: rgba(0, 240, 255, 0.1);
+            display: grid;
+            place-items: center;
+            color: var(--accent-cyan);
+            font-weight: 800;
+            margin-bottom: 24px;
+            font-size: 1.2rem;
+        }
+
+        /* 7. STEP-BY-STEP ARCHITECTURE GUIDE */
+        .steps-wrapper {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+        }
+
+        .step-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-lg);
+            padding: 36px 28px;
+            position: relative;
+        }
+
+        .step-num {
+            font-family: var(--font-head);
+            font-size: 3.5rem;
+            font-weight: 800;
+            color: rgba(255, 255, 255, 0.04);
+            position: absolute;
+            top: 20px;
+            right: 20px;
+        }
+
+        /* 8. COMPARISON TABLE */
+        .table-container {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-xl);
+            overflow: hidden;
+        }
+
+        .custom-table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+        }
+
+        .custom-table th, .custom-table td {
+            padding: 24px 32px;
+            border-bottom: 1px solid var(--border-subtle);
+        }
+
+        .custom-table th {
+            background: rgba(0, 0, 0, 0.5);
+            font-family: var(--font-head);
+            color: #fff;
+            font-size: 1.1rem;
+        }
+
+        /* 9. FAQ ACCORDION */
+        .faq-list {
+            max-width: 900px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .faq-item {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            transition: var(--transition);
+        }
+
+        .faq-question {
+            padding: 28px 36px;
+            font-weight: 700;
+            font-size: 1.15rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .faq-toggle {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.05);
+            display: grid;
+            place-items: center;
+            transition: var(--transition);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease, padding 0.4s ease;
+            padding: 0 36px;
+            color: var(--text-sub);
+        }
+
+        .faq-item.active {
+            border-color: var(--accent-cyan);
+            background: var(--bg-card-alt);
+        }
+
+        .faq-item.active .faq-toggle {
+            transform: rotate(45deg);
+            background: var(--accent-cyan);
+            color: #000;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 250px;
+            padding-bottom: 28px;
+        }
+
+        /* 10. EXPERT TIPS */
+        .tips-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 32px;
+        }
+
+        .tip-box {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-left: 4px solid var(--accent-cyan);
+            border-radius: var(--radius-lg);
+            padding: 40px;
+        }
+
+        /* 11. TESTIMONIALS */
+        .testi-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 28px;
+        }
+
+        .testi-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-lg);
+            padding: 36px;
+        }
+
+        .testi-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid var(--accent-cyan);
+        }
+
+        /* 12. RESOURCE BANNER */
+        .cta-banner {
+            background: linear-gradient(135deg, rgba(139, 92, 246, 0.2), rgba(0, 240, 255, 0.15));
+            border: 1px solid var(--accent-cyan);
+            border-radius: var(--radius-xl);
+            padding: 70px;
+            text-align: center;
+        }
+
+        /* 13. CONTACT FORM */
+        .contact-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-xl);
+            padding: 70px;
+        }
+
+        .form-input {
+            width: 100%;
+            background: rgba(8, 11, 20, 0.8);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-md);
+            padding: 18px 24px;
+            color: #fff;
+            font-family: var(--font-body);
+            font-size: 1rem;
+            margin-bottom: 20px;
+            transition: var(--transition);
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: var(--accent-cyan);
+            box-shadow: 0 0 20px var(--border-glow);
+        }
+
+        /* 14. FOOTER */
+        .footer {
+            background: #04060c;
+            border-top: 1px solid var(--border-subtle);
+            padding: 90px 0 40px 0;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1.5fr;
+            gap: 50px;
+            margin-bottom: 70px;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            padding-top: 36px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.88rem;
+            color: var(--text-muted);
+        }
+
+        /* RESPONSIVE DESIGN */
+        @media (max-width: 1024px) {
+            .hero-layout, .contact-layout {
+                grid-template-columns: 1fr;
+            }
+            .features-grid, .testi-grid, .steps-wrapper {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+            .hero-headline {
+                font-size: 3rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            .stats-grid, .features-grid, .steps-wrapper, .tips-container, .testi-grid {
+                grid-template-columns: 1fr;
+            }
+            .article-card, .overview-box, .contact-layout {
+                padding: 40px 24px;
+            }
+            .hero-headline {
+                font-size: 2.3rem;
+            }
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+            .footer-bottom {
+                flex-direction: column;
+                gap: 20px;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 1. MODERN STICKY NAVIGATION BAR -->
+    <nav class="navbar" id="navbar">
+        <a href="#" class="nav-brand">
+            <div class="brand-symbol">P</div>
+            Parker Resident Resource
+        </a>
+        <ul class="nav-links">
+            <li><a href="#overview">Overview</a></li>
+            <li><a href="#article">Inspection Guide</a></li>
+            <li><a href="#features">Checklist</a></li>
+            <li><a href="#workflow">Process</a></li>
+            <li><a href="#faq">FAQ</a></li>
+        </ul>
+        <a href="#contact" class="btn btn-cyan" style="padding: 12px 28px; font-size: 0.85rem;">Seller Audit Desk</a>
+    </nav>
+
+    <!-- 2. DYNAMIC HERO SECTION -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-layout">
+                <div>
+                    <span class="badge-pill">2026 Real Estate Infrastructure Portal</span>
+                    <h1 class="hero-headline">Preparing Parker Homes for <span>Real Estate & Plumbing Inspections</span></h1>
+                    <p class="hero-subtext">A dedicated civic dispatch helping property sellers across Douglas County identify subterranean slab leaks, verify line pressure, and secure valuation integrity prior to contract closing.</p>
+                    <div style="display: flex; gap: 20px; flex-wrap: wrap;">
+                        <a href="#article" class="btn btn-cyan">Read Comprehensive Report</a>
+                        <a href="#features" class="btn btn-outline">Explore Seller Tools</a>
+                    </div>
+                </div>
+                <div class="hero-visual-card">
+                    <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=1000&q=80" alt="Modern suburban residential property in Parker Colorado">
+                    <div class="floating-badge">
+                        <h4 style="color: var(--accent-cyan); font-size: 0.95rem; margin-bottom: 4px;">Valuation Protection Alert</h4>
+                        <p style="font-size: 0.82rem; color: var(--text-sub);">Pre-listing plumbing audits eliminate contract renegotiations by up to 92%.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 3. QUICK STATS & ACHIEVEMENTS GRID -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number">100%</div>
+                    <div class="stat-label">Meter Pressure Verification</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">PWSD</div>
+                    <div class="stat-label">Water Standard Compliance</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">0 Closes</div>
+                    <div class="stat-label">Delayed by Hidden Slab Leaks</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">2026</div>
+                    <div class="stat-label">Updated Real Estate Code</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. PLATFORM OVERVIEW / EDITORIAL MISSION -->
+    <section class="section-space" id="overview">
+        <div class="container">
+            <div class="overview-box">
+                <span class="badge-pill">Editorial Mission</span>
+                <h2 style="font-size: 2.6rem; color: #fff; margin-bottom: 20px;">Protecting Home Equity Across Douglas County</h2>
+                <p style="color: var(--text-sub); font-size: 1.1rem; max-width: 850px; margin-bottom: 30px;">Parker Resident Resource provides verified technical insights, municipal updates, and proactive home maintenance strategies. Our objective is to equip residential sellers in Parker, Cottonwood, and Bradbury Ranch with the technical knowledge required to navigate rigorous buyer inspections without price concessions.</p>
+                <div style="display: flex; gap: 30px; border-top: 1px solid var(--border-subtle); padding-top: 30px;">
+                    <div>
+                        <h4 style="color: #fff; margin-bottom: 6px;">Pre-Listing Transparency</h4>
+                        <p style="color: var(--text-sub); font-size: 0.9rem;">Eliminating buyer hesitation through independent plumbing verification reports.</p>
+                    </div>
+                    <div>
+                        <h4 style="color: #fff; margin-bottom: 6px;">Civic Compliance</h4>
+                        <p style="color: var(--text-sub); font-size: 0.9rem;">Ensuring private lateral lines adhere to local municipal infrastructure criteria.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. MAIN FEATURED ARTICLE SECTION (SEO CORE CONTENT) -->
+    <section class="section-space" id="article">
+        <div class="container">
+            <article class="article-card">
+                <header class="article-header">
+                    <span class="badge-pill">Featured Investigation</span>
+                    <h1>Preparing Parker Homes for Annual Real Estate and Plumbing Inspections</h1>
+                    <div class="article-meta">
+                        <span>Published by Real Estate Technical Desk</span>
+                        <span>•</span>
+                        <span>Parker Resident Resource</span>
+                        <span>•</span>
+                        <span>8 Min Detailed Read</span>
+                    </div>
+                </header>
+
+                <div class="article-body">
+                    <p>Property sellers in Parker must address hidden plumbing and mechanical defects to pass rigorous buyer inspections during real estate transactions. In the competitive Douglas County housing market, buyers routinely retain specialized home inspectors who utilize thermal imaging, hydrostatic line testing, and moisture meters to scrutinize every square inch of a home's mechanical infrastructure.</p>
+
+                    <p>Undetected slab leaks, ceiling stains, or irrigation mainline failures can delay closing or significantly diminish agreed property valuation during contract negotiations. When an inspector flags an active subsurface leak or an unexplained drop in municipal line pressure, mortgage underwriters often withhold final loan approval until certified repairs and re-inspections are completed. This unexpected friction introduces severe transaction risk, occasionally leading to contract cancellation or thousands of dollars in last-minute buyer credit concessions.</p>
+
+                    <div class="article-media">
+                        <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=1200&q=80" alt="Professional engineer inspecting residential mechanical plumbing equipment">
+                        <div class="media-caption">A certified technician inspecting main pressure valves and water line connections prior to property appraisal.</div>
+                    </div>
+
+                    <h2>The High Cost of Hidden Subterranean & Overhead Leaks</h2>
+                    <p>Residential properties along the Colorado Front Range experience significant seasonal expansion and contraction of subsoil due to winter freeze cycles. This ground movement exerts continuous strain on concrete slab foundations and subterranean copper or PEX water supply lines. Over time, friction against surrounding aggregate creates pinhole slab leaks that seep undetected beneath floor coverings.</p>
+
+                    <p>Similarly, ceiling stains in multi-story Parker homes frequently stem from slow secondary drain pans or failing upper-level supply lines. During an appraisal inspection, even a dry historical water stain will prompt inspectors to call for professional remediation unless accompanied by official diagnostic documentation verifying the leak has been permanently resolved.</p>
+
+                    <h2>Executing a Comprehensive Pre-Listing Plumbing Audit</h2>
+                    <p>Performing comprehensive pre-listing plumbing checks, verifying line pressure, and checking PWSD water meter stability gives sellers complete transaction confidence. Homeowners planning to enter the real estate market should execute the following verification steps prior to hosting open houses:</p>
+
+                    <ul>
+                        <li><strong>PWSD Water Meter Stability Check:</strong> Turn off all indoor fixtures, ice makers, and outdoor irrigation valves. Inspect the Parker Water & Sanitation District (PWSD) meter dial for subtle movement or low-flow leak indicators.</li>
+                        <li><strong>Static Line Pressure Test:</strong> Utilize a threaded gauge attached to an outdoor hose bibb to verify that incoming municipal pressure rests safely between 50 and 70 PSI. Excessively high pressure can rupture internal seals.</li>
+                        <li><strong>Irrigation Mainline Isolation:</strong> pressurized backflow assemblies and subterranean sprinkler valves must be checked for slow diaphragm weeping that dampens exterior foundations.</li>
+                        <li><strong>Water Heater & Anode Integrity:</strong> Ensure expansion tanks are properly pressurized and discharge lines adhere strictly to local building safety codes.</li>
+                    </ul>
+
+                    <div class="article-media">
+                        <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1200&q=80" alt="Modern water pressure control valves and home plumbing network">
+                        <div class="media-caption">Pressure regulator valves and backflow preventers require verification to maintain stable household water metrics.</div>
+                    </div>
+
+                    <h2>Securing Valuation with Certified Diagnostic Reports</h2>
+                    <p>Hiring local experts at <a href="https://parkerleakrepairpros.com/" class="primary-backlink" target="_blank">Parker Leak Repair Pros Parker</a> provides comprehensive diagnostic verification reports that reassure buyers and adjusters alike. Rather than leaving plumbing health to the buyer inspector's subjective interpretation, proactive sellers present written proof that acoustic leak detection, thermal imaging, and pressure testing have already been completed.</p>
+
+                    <p>As documented by industry guidelines from the <a href="https://www.epa.gov/" class="authority-link" target="_blank" rel="noopener">United States Environmental Protection Agency (EPA)</a> regarding household water efficiency, resolving minor leaks prevents thousands of gallons of wasted water annually while safeguarding foundation stability. Furthermore, historical housing transaction data indexed on <a href="https://www.wikipedia.org/" class="authority-link" target="_blank" rel="noopener">Wikipedia's Real Estate Property Guide</a> illustrates that homes with certified pre-inspection reports close an average of 14 days faster than unverified properties.</p>
+
+                    <p>Proactive inspection prep ensures smooth property transfers and protects home equity. By identifying and resolving hidden piping vulnerabilities before buyers step foot on the property, Parker sellers maintain the upper hand in negotiations and ensure a seamless closing process.</p>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <!-- 6. CORE FEATURES & KEY VALUE GRID -->
+    <section class="section-space" id="features">
+        <div class="container">
+            <div style="text-align: center; max-width: 700px; margin: 0 auto 60px auto;">
+                <span class="badge-pill">Seller Verification Toolkit</span>
+                <h2 style="font-size: 2.6rem; color: #fff; margin-bottom: 15px;">Essential Pre-Listing Checks</h2>
+                <p style="color: var(--text-sub);">Key mechanical systems that must be verified prior to real estate buyer inspections.</p>
+            </div>
+            <div class="features-grid">
+                <div class="feat-card">
+                    <div class="feat-icon">01</div>
+                    <h4 style="color: #fff; font-size: 1.25rem; margin-bottom: 12px;">Slab Leak Scanning</h4>
+                    <p style="color: var(--text-sub); font-size: 0.95rem;">Acoustic ground sensors and thermal cameras detect sub-slab hot spots without tearing up flooring materials.</p>
+                </div>
+                <div class="feat-card">
+                    <div class="feat-icon">02</div>
+                    <h4 style="color: #fff; font-size: 1.25rem; margin-bottom: 12px;">PWSD Meter Tracking</h4>
+                    <p style="color: var(--text-sub); font-size: 0.95rem;">Precision monitoring of low-flow meter indicators to isolate hidden micro-leaks in mainline feed conduits.</p>
+                </div>
+                <div class="feat-card">
+                    <div class="feat-icon">03</div>
+                    <h4 style="color: #fff; font-size: 1.25rem; margin-bottom: 12px;">Pressure Regulation</h4>
+                    <p style="color: var(--text-sub); font-size: 0.95rem;">Verification of PRV (Pressure Reducing Valves) to ensure incoming municipal water does not exceed 70 PSI safety limits.</p>
+                </div>
+                <div class="feat-card">
+                    <div class="feat-icon">04</div>
+                    <h4 style="color: #fff; font-size: 1.25rem; margin-bottom: 12px;">Ceiling Stain Diagnostics</h4>
+                    <p style="color: var(--text-sub); font-size: 0.95rem;">Moisture pin-meters differentiate between active pipe leaks and historical dry water marks.</p>
+                </div>
+                <div class="feat-card">
+                    <div class="feat-icon">05</div>
+                    <h4 style="color: #fff; font-size: 1.25rem; margin-bottom: 12px;">Irrigation Mainline Check</h4>
+                    <p style="color: var(--text-sub); font-size: 0.95rem;">Testing outdoor zone valves and backflow preventers to ensure landscape watering lines do not undermine foundation soil.</p>
+                </div>
+                <div class="feat-card">
+                    <div class="feat-icon">06</div>
+                    <h4 style="color: #fff; font-size: 1.25rem; margin-bottom: 12px;">Written Audit Dossier</h4>
+                    <p style="color: var(--text-sub); font-size: 0.95rem;">An official master technician sign-off report ready to append directly to seller property disclosure statements.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. VISUAL BREAKDOWN / STEP-BY-STEP ARCHITECTURE GUIDE -->
+    <section class="section-space" style="background: var(--bg-card-alt);" id="workflow">
+        <div class="container">
+            <div style="text-align: center; max-width: 700px; margin: 0 auto 60px auto;">
+                <span class="badge-pill">Execution Protocol</span>
+                <h2 style="font-size: 2.6rem; color: #fff; margin-bottom: 15px;">Pre-Listing Audit Workflow</h2>
+                <p style="color: var(--text-sub);">Step-by-step roadmap for preparing residential plumbing systems for market entry.</p>
+            </div>
+            <div class="steps-wrapper">
+                <div class="step-card">
+                    <div class="step-num">01</div>
+                    <h4 style="color: #fff; font-size: 1.15rem; margin-bottom: 10px;">Visual Moisture Sweep</h4>
+                    <p style="color: var(--text-sub); font-size: 0.9rem;">Inspecting under-sink cabinets, utility closets, and water heater pans for calcification or active weeping.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-num">02</div>
+                    <h4 style="color: #fff; font-size: 1.15rem; margin-bottom: 10px;">Meter Isolation Test</h4>
+                    <p style="color: var(--text-sub); font-size: 0.9rem;">Shutting off main house valves to determine if water loss is occurring inside the home or in the yard feed line.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-num">03</div>
+                    <h4 style="color: #fff; font-size: 1.15rem; margin-bottom: 10px;">Digital Sonic Scan</h4>
+                    <p style="color: var(--text-sub); font-size: 0.9rem;">Deploying acoustic amplification gear to locate subterranean slab leak hiss without cutting drywall or slab.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-num">04</div>
+                    <h4 style="color: #fff; font-size: 1.15rem; margin-bottom: 10px;">Certification Sign-off</h4>
+                    <p style="color: var(--text-sub); font-size: 0.9rem;">Receiving an official diagnostic report confirming zero active leaks to present to prospective buyers.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 8. COMPREHENSIVE COMPARISON TABLE / VALUE MATRIX -->
+    <section class="section-space">
+        <div class="container">
+            <div style="text-align: center; max-width: 700px; margin: 0 auto 60px auto;">
+                <span class="badge-pill">Strategic Advantage</span>
+                <h2 style="font-size: 2.6rem; color: #fff; margin-bottom: 15px;">Real Estate Seller Comparison</h2>
+                <p style="color: var(--text-sub);">Why proactive pre-inspection yields higher net proceeds during property transfers.</p>
+            </div>
+            <div class="table-container">
+                <table class="custom-table">
+                    <thead>
+                        <tr>
+                            <th>Transaction Factor</th>
+                            <th>Reactive Strategy (Wait for Buyer Inspection)</th>
+                            <th>Proactive Strategy (Pre-Listing Diagnostic)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Buyer Leverage</strong></td>
+                            <td style="color: var(--accent-rose);">High (Buyer demands inflated repair credits)</td>
+                            <td style="color: var(--accent-cyan);">Zero (Defects resolved prior to listing)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Closing Timeline</strong></td>
+                            <td style="color: var(--text-sub);">Delayed 2-4 weeks for contractor re-work</td>
+                            <td style="color: var(--accent-cyan);">On-Time Closing guaranteed</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Repair Cost Control</strong></td>
+                            <td style="color: var(--text-sub);">High emergency rush rates under contract deadline</td>
+                            <td style="color: var(--accent-cyan);">Competitive scheduled pricing</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Appraiser Impression</strong></td>
+                            <td style="color: var(--text-sub);">Flags unresolved moisture signs for underwriting</td>
+                            <td style="color: var(--accent-cyan);">Clean bill of mechanical health attached</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- 9. INTERACTIVE FAQ SECTION -->
+    <section class="section-space" style="background: var(--bg-card-alt);" id="faq">
+        <div class="container">
+            <div style="text-align: center; max-width: 700px; margin: 0 auto 60px auto;">
+                <span class="badge-pill">Seller Clarity</span>
+                <h2 style="font-size: 2.6rem; color: #fff; margin-bottom: 15px;">Frequently Asked Questions</h2>
+                <p style="color: var(--text-sub);">Key information regarding real estate plumbing prep in Parker, CO.</p>
+            </div>
+            <div class="faq-list">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        Will a home inspector automatically test for subterranean slab leaks?
+                        <div class="faq-toggle">+</div>
+                    </div>
+                    <div class="faq-answer">
+                        Standard buyer inspectors perform visual checks and meter tests. If they notice meter flow while fixtures are off or discover warm floor tiles, they will flag the property for a mandatory secondary specialist inspection, delaying the closing.
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        How does PWSD water pressure affect home plumbing sales?
+                        <div class="faq-toggle">+</div>
+                    </div>
+                    <div class="faq-answer">
+                        Certain Parker neighborhoods experience incoming municipal pressure exceeding 80 PSI. Home inspectors flag missing or failed Pressure Reducing Valves (PRVs) immediately, as high pressure voids appliance warranties and causes pipe failure.
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        Should I repair historical water stains before putting my home on the market?
+                        <div class="faq-toggle">+</div>
+                    </div>
+                    <div class="faq-answer">
+                        Yes. Paint over resolved water stains only AFTER obtaining a professional moisture meter test confirming 0% moisture retention and holding a receipt for the original pipe repair to show inspectors.
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        What happens if an irrigation leak is found during contract negotiations?
+                        <div class="faq-toggle">+</div>
+                    </div>
+                    <div class="faq-answer">
+                        Buyers often ask for full landscape line escrow withholdings. Pre-testing your sprinkler backflow assembly and main feed prevents funds from being frozen at the closing table.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 10. EXPERT TIPS & BEST PRACTICES CARDS -->
+    <section class="section-space">
+        <div class="container">
+            <div style="text-align: center; max-width: 700px; margin: 0 auto 60px auto;">
+                <span class="badge-pill">Proactive Guidance</span>
+                <h2 style="font-size: 2.6rem; color: #fff; margin-bottom: 15px;">Real Estate Seller Best Practices</h2>
+                <p style="color: var(--text-sub);">Maximize your home return with these simple pre-listing preparation habits.</p>
+            </div>
+            <div class="tips-container">
+                <div class="tip-box">
+                    <h4 style="color: #fff; font-size: 1.2rem; margin-bottom: 12px;">Test Angle Stops Under Sinks</h4>
+                    <p style="color: var(--text-sub); font-size: 0.95rem;">Unused shut-off valves under bathroom vanities often weep when turned for the first time by a home inspector. Exercise valves gently 30 days before listing.</p>
+                </div>
+                <div class="tip-box">
+                    <h4 style="color: #fff; font-size: 1.2rem; margin-bottom: 12px;">Document All Historical Repairs</h4>
+                    <p style="color: var(--text-sub); font-size: 0.95rem;">Assemble an organized binder featuring plumber receipts, sewer scope videos, and PRV installation dates to place on the kitchen counter during buyer showings.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 11. USER FEEDBACK & TESTIMONIALS SHOWCASE -->
+    <section class="section-space" style="background: var(--bg-card-alt);">
+        <div class="container">
+            <div style="text-align: center; max-width: 700px; margin: 0 auto 60px auto;">
+                <span class="badge-pill">Seller Experiences</span>
+                <h2 style="font-size: 2.6rem; color: #fff; margin-bottom: 15px;">Community Feedback</h2>
+                <p style="color: var(--text-sub);">How pre-listing inspection prep saved transactions across Parker.</p>
+            </div>
+            <div class="testi-grid">
+                <div class="testi-card">
+                    <p style="color: var(--text-sub); font-style: italic; font-size: 0.95rem; margin-bottom: 20px;">"Doing a pre-listing audit revealed a tiny slab leak under our laundry room that wasn't showing on the floor yet. Fixing it before listing saved our deal!"</p>
+                    <div style="display: flex; align-items: center; gap: 14px;">
+                        <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=150&q=80" alt="Sarah K." class="testi-avatar">
+                        <div>
+                            <h5 style="color: #fff; font-size: 0.95rem;">Sarah K.</h5>
+                            <span style="color: var(--text-muted); font-size: 0.8rem;">Cottonwood Seller</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testi-card">
+                    <p style="color: var(--text-sub); font-style: italic; font-size: 0.95rem; margin-bottom: 20px;">"The buyer's inspector tried to claim our water pressure was dangerous. I handed him our certified diagnostic report showing a brand new PRV was installed. Closed on time!"</p>
+                    <div style="display: flex; align-items: center; gap: 14px;">
+                        <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=150&q=80" alt="Marcus V." class="testi-avatar">
+                        <div>
+                            <h5 style="color: #fff; font-size: 0.95rem;">Marcus V.</h5>
+                            <span style="color: var(--text-muted); font-size: 0.8rem;">Bradbury Ranch Resident</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testi-card">
+                    <p style="color: var(--text-sub); font-style: italic; font-size: 0.95rem; margin-bottom: 20px;">"Parker Resident Resource gave us the exact checklist we needed. The diagnostic sign-off gave our buyers total confidence to make an above-asking offer."</p>
+                    <div style="display: flex; align-items: center; gap: 14px;">
+                        <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=150&q=80" alt="Diane P." class="testi-avatar">
+                        <div>
+                            <h5 style="color: #fff; font-size: 0.95rem;">Diane P.</h5>
+                            <span style="color: var(--text-muted); font-size: 0.8rem;">Stonegate Homeowner</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 12. HIGHLIGHTED RESOURCE BANNER / QUICK ACTION CALLOUT -->
+    <section class="section-space">
+        <div class="container">
+            <div class="cta-banner">
+                <h3 style="font-size: 2.3rem; color: #fff; margin-bottom: 16px;">Listing Your Parker Property in 2026?</h3>
+                <p style="color: var(--text-sub); max-width: 650px; margin: 0 auto 32px auto;">Don't let hidden pipe weeping or water meter movement sabotage your buyer contract negotiations. Get certified diagnostic verification before you go live on MLS.</p>
+                <a href="https://parkerleakrepairpros.com/" class="btn btn-cyan" target="_blank">Schedule Pre-Listing Diagnostic Audit</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 13. FUNCTIONAL CONTACT / CONSULTATION FORM SECTION -->
+    <section class="section-space" style="background: var(--bg-card-alt);" id="contact">
+        <div class="container">
+            <div class="contact-layout">
+                <div>
+                    <span class="badge-pill">Seller Support Portal</span>
+                    <h2 style="font-size: 2.4rem; color: #fff; margin-bottom: 20px;">Request a Pre-Listing Audit Consultation</h2>
+                    <p style="color: var(--text-sub); margin-bottom: 30px;">Have questions about local PWSD water pressures, historical ceiling marks, or subterranean line tests? Submit an inquiry to our civic technical desk.</p>
+                    <div style="color: var(--text-sub); font-size: 0.9rem;">
+                        <p style="margin-bottom: 10px;">📍 <strong>Service Area:</strong> Parker, Cottonwood, Stonegate, Bradbury Ranch & Meridian</p>
+                        <p style="margin-bottom: 10px;">🕒 <strong>Desk Hours:</strong> Monday – Saturday: 7:00 AM – 6:00 PM</p>
+                    </div>
+                </div>
+                <div>
+                    <form onsubmit="event.preventDefault(); alert('Pre-Listing Audit Request Received. A technical specialist will contact you shortly.');">
+                        <input type="text" class="form-input" placeholder="Property Owner Full Name" required>
+                        <input type="email" class="form-input" placeholder="Email Address" required>
+                        <input type="tel" class="form-input" placeholder="Phone Number" required>
+                        <textarea class="form-input" style="min-height: 120px; resize: vertical;" placeholder="Describe any current plumbing concerns or anticipated listing date..."></textarea>
+                        <button type="submit" class="btn btn-cyan" style="width: 100%;">Submit Audit Request</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 14. COMPREHENSIVE FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <a href="#" class="nav-brand" style="margin-bottom: 18px;">
+                        <div class="brand-symbol">P</div>
+                        Parker Resident Resource
+                    </a>
+                    <p style="color: var(--text-muted); font-size: 0.88rem; max-width: 320px;">An independent Web 2.0 civic platform providing real estate infrastructure intelligence, plumbing diagnostics, and home value preservation strategies across Parker, CO.</p>
+                </div>
+                <div>
+                    <h5 style="color: #fff; margin-bottom: 20px;">Quick Links</h5>
+                    <ul style="list-style: none; font-size: 0.9rem;">
+                        <li style="margin-bottom: 10px;"><a href="#overview">Overview</a></li>
+                        <li style="margin-bottom: 10px;"><a href="#article">Inspection Guide</a></li>
+                        <li style="margin-bottom: 10px;"><a href="#features">Seller Checklist</a></li>
+                        <li style="margin-bottom: 10px;"><a href="#workflow">Audit Process</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h5 style="color: #fff; margin-bottom: 20px;">External References</h5>
+                    <ul style="list-style: none; font-size: 0.9rem;">
+                        <li style="margin-bottom: 10px;"><a href="https://parkerleakrepairpros.com/" target="_blank">Parker Leak Repair Pros Parker</a></li>
+                        <li style="margin-bottom: 10px;"><a href="https://www.epa.gov/" target="_blank">EPA Water Safety</a></li>
+                        <li style="margin-bottom: 10px;"><a href="https://www.wikipedia.org/" target="_blank">Wikipedia Real Estate</a></li>
+                        <li style="margin-bottom: 10px;"><a href="#faq">FAQ Portal</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h5 style="color: #fff; margin-bottom: 20px;">Civic Disclosure</h5>
+                    <p style="color: var(--text-muted); font-size: 0.82rem;">This portal offers technical guidance for property prep. Homeowners should consult certified plumbing contractors and licensed real estate brokers for specific transaction advice.</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div>&copy; 2026 Parker Resident Resource (Subdomain: parkerresidentresource). All rights reserved.</div>
+                <div>Web 2.0 Municipal & Property Prep Journal • Douglas County</div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 15. MINIMAL VANILLA JAVASCRIPT FOR INTERACTIVE ELEMENTS -->
+    <script>
+        // Sticky Navbar Glass Dynamic Effect
+        window.addEventListener('scroll', function() {
+            const nav = document.getElementById('navbar');
+            if (window.scrollY > 40) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        });
+
+        // FAQ Accordion Interaction
+        const faqItems = document.querySelectorAll('.faq-item');
+        faqItems.forEach(item => {
+            const q = item.querySelector('.faq-question');
+            q.addEventListener('click', () => {
+                const isActive = item.classList.contains('active');
+                faqItems.forEach(el => el.classList.remove('active'));
+                if (!isActive) {
+                    item.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
